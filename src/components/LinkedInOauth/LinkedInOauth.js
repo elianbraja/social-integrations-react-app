@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useLinkedIn } from 'react-linkedin-login-oauth2';
 import linkedin from 'react-linkedin-login-oauth2/assets/linkedin.png';
@@ -7,13 +7,17 @@ import axios from "axios";
 function LinkedInOauth() {
 
   const createTokens = code => {
-      console.log(code);
+    axios.post('/api/create-tokens-linkedin', {code})
+        .then(response => {
+          console.log(response.data)
+        })
+        .catch(error => console.log(error.message))
   }
 
   const { linkedInLogin } = useLinkedIn({
     clientId: process.env.REACT_APP_LINKEDIN_CLIENT_ID,
     redirectUri: process.env.REACT_APP_LINKEDIN_REDIRECT_URI,
-    scope: "r_liteprofile",
+    scope: "profile",
     onSuccess: code => createTokens(code),
   });
 
