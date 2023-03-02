@@ -1,5 +1,3 @@
-/*App.js*/
-
 import React, {useState} from 'react';
 import {useGoogleLogin} from '@react-oauth/google';
 import axios from "axios";
@@ -33,7 +31,7 @@ function GoogleCalendarOauth() {
             .catch(error => console.log(error.message))
     }
 
-    const login = useGoogleLogin({
+    const googleLogin = useGoogleLogin({
         onSuccess: codeResponse => createTokens(codeResponse.code),
         flow: 'auth-code',
         scope: "openid email profile https://www.googleapis.com/auth/calendar"
@@ -76,9 +74,13 @@ function GoogleCalendarOauth() {
 
                     :
 
-                    (<button onClick={() => login()}>
-                        Sign in with Google 🚀{' '}
-                    </button>)
+                    (<img
+                      onClick={() => googleLogin()}
+                      src={"https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png"}
+                      alt="Sign in with Linked In"
+                      style={{ maxWidth: '180px', cursor: 'pointer' }}
+                    />)
+
             }
         </div>
     )
