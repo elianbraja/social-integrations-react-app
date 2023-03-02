@@ -2,9 +2,9 @@
 
 import React, {useState} from 'react';
 import {BrowserRouter as Router,  Routes,  Route,  Link} from 'react-router-dom';
-import Home from './components/Home';
-import GoogleCalendarOauth from './components/GoogleCalendarOauth';
-import LinkedInOauth from './components/LinkedInOauth';
+import Home from './components/Home/Home';
+import GoogleCalendarOauth from './components/GoogleCalendarOauth/GoogleCalendarOauth';
+import LinkedInOauth from './components/LinkedInOauth/LinkedInOauth';
 
 function App() {
  return (

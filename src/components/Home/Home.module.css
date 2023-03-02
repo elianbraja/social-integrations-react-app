@@ -1,0 +1,13 @@
+.oauth_button_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.oauth_button{
+  text-align: center;
+}
+
+.oauth_image{
+  width: 350px;
+}
